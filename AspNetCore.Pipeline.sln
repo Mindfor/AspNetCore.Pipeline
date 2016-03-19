@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Mindfor.AspNetCore.Pipeline", "src\Mindfor.AspNetCore.Pipeline\Mindfor.AspNetCore.Pipeline.xproj", "{EA186D18-DB6D-4F90-A6E0-2C4FECD06F31}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B750A1D6-A553-46BE-9B07-B78B3D833A16}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B088D1D5-0D84-4ED5-9074-E08DA4B2B220}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		build.ps1 = build.ps1
+		global.json = global.json
+		LICENCE = LICENCE
+		NuGet.config = NuGet.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA186D18-DB6D-4F90-A6E0-2C4FECD06F31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA186D18-DB6D-4F90-A6E0-2C4FECD06F31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA186D18-DB6D-4F90-A6E0-2C4FECD06F31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA186D18-DB6D-4F90-A6E0-2C4FECD06F31}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EA186D18-DB6D-4F90-A6E0-2C4FECD06F31} = {B750A1D6-A553-46BE-9B07-B78B3D833A16}
+	EndGlobalSection
+EndGlobal
