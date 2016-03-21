@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Options;
 
 namespace Mindfor.AspNetCore
 {
@@ -23,13 +24,15 @@ namespace Mindfor.AspNetCore
 		/// HTTP requests will be redirected to HTTPs and vice versa.
 		/// </param>
 		/// <param name="options">Redirect options.</param>
-		public RequireSchemeMiddleware(RequestDelegate next, RequireScheme requiredScheme, RequireSchemeOptions options)
+		public RequireSchemeMiddleware(RequestDelegate next, RequireScheme requiredScheme, IOptions<RequireSchemeOptions> options)
 		{
 			if (next == null)
 				throw new ArgumentNullException(nameof(next));
+			if (options == null)
+				throw new ArgumentNullException(nameof(options));
 			_next = next;
-			_options = options;
 			_requiredScheme = requiredScheme;
+			_options = options.Value;
 		}
 
 		/// <summary>

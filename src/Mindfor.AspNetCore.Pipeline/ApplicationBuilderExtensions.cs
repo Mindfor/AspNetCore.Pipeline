@@ -14,10 +14,32 @@ namespace Microsoft.AspNetCore.Builder
 		/// All HTTP connections will be redirected to HTTPS.
 		/// </summary>
 		/// <param name="app">The <see cref="IApplicationBuilder"/>.</param>
-		/// <param name="options">Options for <see cref="RequireSchemeMiddleware"/>.</param>
-		public static IApplicationBuilder UseRequireHttps(this IApplicationBuilder app, RequireSchemeOptions options = null)
+		public static IApplicationBuilder UseRequireHttps(this IApplicationBuilder app)
 		{
-			return app.UseMiddleware<RequireSchemeMiddleware>(RequireScheme.Https, options);
+			return app.UseMiddleware<RequireSchemeMiddleware>(RequireScheme.Https);
+		}
+
+		/// <summary>
+		/// Adds middleware to require HTTPS connections only.
+		/// All HTTP connections will be redirected to HTTPS.
+		/// </summary>
+		/// <param name="app">The <see cref="IApplicationBuilder"/>.</param>
+		/// <param name="options">Options for <see cref="RequireSchemeMiddleware"/>.</param>
+		public static IApplicationBuilder UseRequireHttps(this IApplicationBuilder app, RequireSchemeOptions options)
+		{
+			if (options == null)
+				throw new ArgumentNullException(nameof(options));
+			return app.UseMiddleware<RequireSchemeMiddleware>(RequireScheme.Https, Options.Create(options));
+		}
+
+		/// <summary>
+		/// Adds middleware to require HTTP connections only.
+		/// All HTTPS connections will be redirected to HTTP.
+		/// </summary>
+		/// <param name="app">The <see cref="IApplicationBuilder"/>.</param>
+		public static IApplicationBuilder UseRequireHttp(this IApplicationBuilder app)
+		{
+			return app.UseMiddleware<RequireSchemeMiddleware>(RequireScheme.Http);
 		}
 
 		/// <summary>
@@ -26,9 +48,11 @@ namespace Microsoft.AspNetCore.Builder
 		/// </summary>
 		/// <param name="app">The <see cref="IApplicationBuilder"/>.</param>
 		/// <param name="options">Options for <see cref="RequireSchemeMiddleware"/>.</param>
-		public static IApplicationBuilder UseRequireHttp(this IApplicationBuilder app, RequireSchemeOptions options = null)
+		public static IApplicationBuilder UseRequireHttp(this IApplicationBuilder app, RequireSchemeOptions options)
 		{
-			return app.UseMiddleware<RequireSchemeMiddleware>(RequireScheme.Http, options);
+			if (options == null)
+				throw new ArgumentNullException(nameof(options));
+			return app.UseMiddleware<RequireSchemeMiddleware>(RequireScheme.Http, Options.Create(options));
 		}
 
 		/// <summary>
